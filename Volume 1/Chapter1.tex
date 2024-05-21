@@ -1,0 +1,63 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{amsmath}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\author{Adam Crowe}
+\title{Shreve -- Stochastic Calculus for Finance, Vol. 1 \\ Chapter 1 Solutions}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\maketitle
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.1} $\;$ We start with the assumption that $X_0 = 0$ and define:
+\begin{align*}
+    X_1 &\overset{\text{def}}= \Delta_0 S_1 + (1+r)(X_0 - \Delta_0 S_0) \\
+    \implies \quad X_1 &= \left( S_1 - (1+r)S_0 \right) \Delta_0
+\end{align*}
+Depending on the outcome of the first toss, we have:
+\begin{align*}
+    X_1(H) = \left( u - (1+r) \right) S_0 \Delta_0, \quad
+    X_1(T) = \left( d - (1+r) \right) S_0 \Delta_0
+\end{align*}
+Condition (1.1.2) states that $0 < d < 1 + r < u$, thus we have $u - (1+r) > 0$ and $d-(1+r) < 0$.
+Therefore:
+\begin{gather*}
+    \text{sign}\left( X_1(H) \right) = \text{sign}\left( S_0 \Delta_0 \right) = - \text{sign}\left( X_1(T) \right)
+\end{gather*}
+If an outcome of the toss $\omega$ gives $X_1(\omega) > 0$, then $X_1(\bar \omega) < 0$, where $\bar \omega$ is the opposite outcome to $\omega$.
+However $H$ and $T$ are assumed to have a positive probability, so if the probability that $X_1(\omega) > 0$ is positive, then the probability that $X_1(\bar \omega) < 0$ is also positive.
+Thus Condition (1.1.2) precludes arbitrage.
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.2} $\;$ We compute $X_1(H), X_1(T)$ using $S_1(H)=8, S_1(T)=2$:
+\begin{gather*}
+    X_1(H) = 8\Delta_0 + 3\Gamma_0 - \tfrac{5}{4}(4 \Delta_0 + 1.20 \Gamma_0) = 3 \Delta_0 + 1.5 \Gamma_0 \\
+    X_1(T) = 2\Delta_0 + (0)\Gamma_0 - \tfrac{5}{4}(4 \Delta_0 + 1.20 \Gamma_0) = - 3 \Delta_0 - 1.5 \Gamma_0
+\end{gather*}
+Therefore $X_1(H) = - X_1(T)$.
+By the same argument as in Problem 1.1, if there is a positive probability that $X_1 > 0$, then there is a positive probability that $X_1 < 0$ (assuming that both $H$ and $T$ have a positive probability of occuring).
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.3} $\;$ We compute $V_0$ using $V_1(H) = S_1(H) = uS_0$ and $V_1(T) = S_1(T) = dS_0$:
+\begin{align*}
+    V_0 &= \frac{1}{1+r} \left[ \tilde p V_1(H) + \tilde q V_1(T) \right] \\
+    &= \frac{1}{1+r} \left[ \tilde p (uS_0) + \tilde q (dS_0) \right] \\
+    &= \frac{S_0}{1+r} \left[ \left( \frac{1+r - d}{u-d} \right) u + \left( \frac{u-1-r}{u-d} \right) d \right] \\
+    &= \frac{S_0}{(1+r)(u-d)} \left( u +ur - ud + ud - d - dr \right) \\
+    &= \frac{S_0}{(1+r)(u-d)} \left( u +ur - d - dr \right) \\
+    &= S_0
+\end{align*}
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.4} $\;$ 
+
+\end{document}
