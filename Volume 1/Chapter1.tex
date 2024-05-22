@@ -104,7 +104,7 @@ Using the wealth equation, we calculate:
 \end{gather*}
 Next we calculate $\Delta_2(HT)$:
 \begin{align*}
-    \Delta_1(H) = \frac{V_2(HTH)- V_2(HTT)}{S_2(HTH)-S_2(HTT)} = \frac{0-6}{8-2} = -1
+    \Delta_2(HT) = \frac{V_2(HTH)- V_2(HTT)}{S_2(HTH)-S_2(HTT)} = \frac{0-6}{8-2} = -1
 \end{align*}
 We have $X_2(HT)=V_2(HT)=2.40$:
 \begin{gather*}
@@ -135,6 +135,107 @@ Alternatively, Theorem 1.2.2 tells us the amount of shares $\Delta_0'$ that the 
 It follows, that the \textit{buyer} of the option (in this case the bank) should perform the opposite actions to the seller, in order to replicate the option.
 Again, we see that the bank should sell $0.50$ shares short at time zero.
 
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.7} $\;$ The payoff of a lookback option at time three is $V_3 = \max_{0 \leq n \leq 3} S_n - S_3$:
+\begin{align*}
+    V_3(HHH) &= 32 - 32 = 0 & V_3(THH) &= 8 - 8 = 0 \\
+    V_3(HHT) &= 16 - 8 = 8 & V_3(THT) &= 4 - 2 = 2 \\
+    V_3(HTH) &= 8 - 8 = 0 & V_3(TTH) &= 4 - 2 = 2 \\
+    V_3(HTT) &= 8 - 2 = 6 & V_3(TTT) &= 4 - 0.50 = 3.50
+\end{align*}
+We know $\tilde p = \tilde q = \tfrac{1}{2}$, so then:
+\begin{align*}
+    V_2(HH) &= \tfrac{4}{5}\left[ \tfrac{1}{2}(0) + \tfrac{1}{2}(8) \right] = \tfrac{16}{5} = 3.20 & V_2(TH) &= \tfrac{4}{5}\left[ \tfrac{1}{2}(0) + \tfrac{1}{2}(2) \right] = \tfrac{4}{5} = 0.80 \\
+    V_2(HT) &= \tfrac{4}{5}\left[ \tfrac{1}{2}(0) + \tfrac{1}{2}(6) \right] = \tfrac{12}{5} = 2.40  & V_2(TT) &= \tfrac{4}{5}\left[ \tfrac{1}{2}(2) + \tfrac{1}{2}(3.50) \right] = \tfrac{11}{5} = 2.20
+\end{align*}
+\begin{align*}
+    V_1(H) &= \tfrac{4}{5}\left[ \tfrac{1}{2}(3.20) + \tfrac{1}{2}(2.40) \right] = \tfrac{56}{25} = 2.24 \\
+    V_1(T) &= \tfrac{4}{5} \left[ \tfrac{1}{2}(0.80) + \tfrac{1}{2}(2.20) \right] = \tfrac{6}{5} = 1.20 \\
+    V_0 &= \tfrac{4}{5} \left[ \tfrac{1}{2}(2.24) + \tfrac{1}{2}(1.20) \right] = \tfrac{172}{125} = 1.376
+\end{align*}
+We compute the values $\Delta_i$ for $i = 0, 1, 2$ according to Theorem 1.2.2:
+\begin{align*}
+    \Delta_0 = \frac{(2.24) - (1.20)}{(8) - (2)} = \frac{13}{75} = 0.173 
+\end{align*}
+\begin{align*}
+    \Delta_1(H) = \frac{(3.20)-(2.40)}{(16)-(4)} = \frac{1}{30} = 0.033\quad \quad \Delta_1(T) = \frac{(0.80)-(2.20)}{(4)-(1)} = -\frac{7}{15} = -0.467
+\end{align*}
+\begin{align*}
+    \Delta_2(HH) &= \frac{(0)-(8)}{(32) - (8)} = - \frac{1}{3} & \Delta_2(TH) &= \frac{(0)-(2)}{(8)-(2)} = - \frac{1}{4} \\
+    \Delta_2(HT) &= \frac{(0)-(6)}{(8)-(2)} = -1 & \Delta_2(TT) &= \frac{(2)-(3.50)}{(2)-(0.50)} = -1
+\end{align*}
+
+As mentioned in Problem 1.6, the owner of the option should carry out the opposite actions determined by Theorem 1.2.2 in order to replicate the option.
+
+\vspace{5mm}
+
+The bank should at time zero, sell $0.173$ shares short, and invest the proceeds in the money market. We list the actions the bank should take depending on the result of the first two tosses:
+
+\begin{center}
+    \begin{tabular}{ c|c|c } 
+        Outcomes & Time 1 & Time 2 \\
+        \hline
+        HH & Short 0.033 Shares & Buy 0.333 Shares  \\
+        HT & Short 0.033 Shares  & Buy 1 Shares  \\
+        TH & Buy 0.467 Shares & Buy 0.25 Shares  \\
+        TT & Buy 0.467 Shares  & Buy 1 Shares 
+    \end{tabular}
+\end{center}
+
+At any period, if the bank is shorting a stock, they should invest the proceeds in the money market, and if they are buying a stock, they should borrow from the money market to fund this.
+Theorem 1.2.2 guarantees that if the bank follows the above strategy, at time 3, the portfolio will be worth $\left( \tfrac{5}{4} \right)^3 \cdot 1.376 = 2.6875$, regardless of the outcomes of the tosses.
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.8}
+
+\vspace{5mm}
+\noindent
+(i)$\;$ We know that $V_n = \frac{1}{1+r}\left[\tilde p V_{n+1}(H)+\tilde q V_{n+1}(T)\right]$.
+Futhermore $Y_{n+1} = Y_{n} + S_{n+1}$, hence:
+\begin{align*}
+    v_n(s,y) &= \tfrac{4}{5}\left[ \tfrac{1}{2}v_{n+1}(2s, y+2s) +\tfrac{1}{2}v_{n+1}\left(\tfrac{1}{2}s, y+\tfrac{1}{2}s\right) \right] \\
+    &= \tfrac{2}{5} \left[ v_{n+1}(2s, y+2s) + v_{n+1}\left(\tfrac{1}{2}s, y+\tfrac{1}{2}s\right) \right]
+\end{align*}
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(ii)$\;$ Note that $v_3(s,y) = \left( \tfrac{1}{4}y-4 \right)^+$ only depends on $y$. The possible values for $y$ at time three are: 60, 36, 24, 18, 12, 9, 7.5. Also note that $v_3(s,y) = 0$ for $y \leq 16$:
+\begin{gather*}
+    v_3(s, 60) = \left(\tfrac{1}{4}(60)-4 \right)^+ = 11 \\
+    v_3(s, 36) = \left(\tfrac{1}{4}(36)-4 \right)^+ = 5 \\
+    v_3(s, 24) = \left(\tfrac{1}{4}(24)-4 \right)^+ = 2 \\
+    v_3(s, 18) = \left(\tfrac{1}{4}(18)-4 \right)^+ = \tfrac{1}{2} \\
+    v_3(s, 12) = v_3(s, 9) = v_3(s, 7.5) = 0
+\end{gather*}
+Then:
+\begin{align*}
+    v_2(16,28) &= \tfrac{2}{5}\left[v_{3}(32, 60) + v_{3}\left(8, 36\right)\right] = \tfrac{2}{5}((11)+(5)) = \tfrac{32}{5} \\
+    v_2(4,16) &= \tfrac{2}{5}\left[v_{3}(8, 24) + v_{3}\left(2, 18\right)\right] = \tfrac{2}{5}\left((2)+\left(\tfrac{1}{2}\right)\right) = 1 \\
+    v_2(4,10) &= \tfrac{2}{5}\left[v_{3}(8, 18) + v_{3}\left(2, 12\right)\right] = \tfrac{2}{5}\left(\left(\tfrac{1}{2}\right) + (0)\right) = \tfrac{1}{5} \\
+    v_2(1,7) &= \tfrac{2}{5}\left[v_{3}(2, 9) + v_{3}\left(0.5, 7.5\right)\right] = \tfrac{2}{5}\left((0)+(0)\right) = 0
+\end{align*}
+\begin{align*}
+    v_1(8, 12) &= \tfrac{2}{5}\left[v_{2}(16, 28) + v_{2}\left(4, 16\right)\right] = \tfrac{2}{5}\left(\left(\tfrac{32}{5}\right) + (1)\right) = \tfrac{74}{25} \\
+    v_1(2, 6) &= \tfrac{2}{5}\left[v_{2}(4, 10) + v_{2}\left(1, 7\right)\right] = \tfrac{2}{5}\left(\left(\tfrac{1}{5}\right) + (0)\right) = \tfrac{2}{25} \\
+\end{align*}
+\begin{gather*}
+    v_0(4,4) = \tfrac{2}{5}\left[ v_1(8,12) + v_1(2,6) \right] = \tfrac{2}{5}\left[ \left(\tfrac{74}{25}\right) + \left(\tfrac{2}{25}\right) \right] = \tfrac{152}{125} = 1.216
+\end{gather*}
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(iii)$\;$
+\begin{align*}
+    \delta_n(s,y) &= \frac{v_{n+1}(2s, y+2s) - v_{n+1}\left(\tfrac{1}{2}s, y+\tfrac{1}{2}s\right)}{(2s) - \left(\tfrac{1}{2}s\right)} \\ &= \frac{2}{3s}\left( v_{n+1}(2s, y+2s) - v_{n+1}\left(\tfrac{1}{2}s, y+\tfrac{1}{2}s\right) \right)
+\end{align*}
 
 \rightline{$\square$}
 
