@@ -1,6 +1,7 @@
 \documentclass[12pt, letterpaper]{article}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 
@@ -34,6 +35,8 @@ If an outcome of the toss $\omega$ gives $X_1(\omega) > 0$, then $X_1(\bar \omeg
 However $H$ and $T$ are assumed to have a positive probability, so if the probability that $X_1(\omega) > 0$ is positive, then the probability that $X_1(\bar \omega) < 0$ is also positive.
 Thus Condition (1.1.2) precludes arbitrage.
 
+\rightline{$\square$}
+
 \vspace{5mm}
 \noindent
 \textbf{Problem 1.2} $\;$ We compute $X_1(H), X_1(T)$ using $S_1(H)=8, S_1(T)=2$:
@@ -44,9 +47,11 @@ Thus Condition (1.1.2) precludes arbitrage.
 Therefore $X_1(H) = - X_1(T)$.
 By the same argument as in Problem 1.1, if there is a positive probability that $X_1 > 0$, then there is a positive probability that $X_1 < 0$ (assuming that both $H$ and $T$ have a positive probability of occuring).
 
+\rightline{$\square$}
+
 \vspace{5mm}
 \noindent
-\textbf{Problem 1.3} $\;$ We compute $V_0$ using $V_1(H) = S_1(H) = uS_0$ and $V_1(T) = S_1(T) = dS_0$:
+\textbf{Problem 1.3} $\;$ We compute $V_0$ under (1.1.10) using $V_1(H) = S_1(H) = uS_0$ and $V_1(T) = S_1(T) = dS_0$:
 \begin{align*}
     V_0 &= \frac{1}{1+r} \left[ \tilde p V_1(H) + \tilde q V_1(T) \right] \\
     &= \frac{1}{1+r} \left[ \tilde p (uS_0) + \tilde q (dS_0) \right] \\
@@ -55,9 +60,82 @@ By the same argument as in Problem 1.1, if there is a positive probability that 
     &= \frac{S_0}{(1+r)(u-d)} \left( u +ur - d - dr \right) \\
     &= S_0
 \end{align*}
+\rightline{$\square$}
 
 \vspace{5mm}
 \noindent
-\textbf{Problem 1.4} $\;$ 
+\textbf{Problem 1.4} $\;$ Let $\omega_1 \omega_2 \dots \omega_n$ be fixed. We compute:
+\begin{align*}
+    X_{n+1}(\omega_1 \omega_2 \dots \omega_n T) &= \Delta_n(\omega_1 \omega_2 \dots \omega_n) S_{n+1}(\omega_1 \omega_2 \dots \omega_n T) \\
+    &+ (1+r) \left( X_n(\omega_1 \omega_2 \dots \omega_n)- \Delta_n(\omega_1 \omega_2 \dots \omega_n) S_n(\omega_1 \omega_2 \dots \omega_n) \right)
+\end{align*}
+We surpress the $\omega_1 \omega_2 \dots \omega_n$ and re-write as:
+\begin{align*}
+    X_{n+1}(T) &= \Delta_n S_{n+1}(T) + (1+r) \left( X_n- \Delta_n S_n \right) \\
+    &= d \Delta_n S_n + (1+r) \left( X_n- \Delta_n S_n \right) \\
+    &= \left(d-(1+r)\right)\Delta_n S_n + (1+r)X_n
+\end{align*}
+By the induction hypothesis, $X_n = V_n$.
+We use the definition of $\Delta_n$ and $V_n$:
+\begin{gather*}
+    \Delta_n = \frac{V_{n+1}(H)-V_{n+1}(T)}{S_{n+1}(H)- S_{n+1}(T)} = \frac{V_{n+1}(H)-V_{n+1}(T)}{(u-d)S_n}
+\end{gather*}
+\begin{gather*}
+    X_n = V_n = \frac{1}{1+r}\left[ \tilde p V_{n+1}(H) + \tilde q V_{n+1}(T)\right]
+\end{gather*}
+\begin{align*}
+    \implies \quad X_{n+1}(T) &= \left(d-(1+r)\right) \left( \frac{V_{n+1}(H)-V_{n+1}(T)}{u-d} \right) + \left( \tilde p V_{n+1}(H) + \tilde q V_{n+1}(T) \right) \\
+    &= -\tilde p \left(V_{n+1}(H)-V_{n+1}(T) \right) + \tilde p V_{n+1}(H) + \tilde q V_{n+1}(T) \\
+    &= (\tilde p + \tilde q)V_{n+1}(T) = V_{n+1}(T)
+\end{align*}
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.5} $\;$ We first calculate $\Delta_1(H)$:
+\begin{align*}
+    \Delta_1(H) = \frac{V_2(HH)- V_2(HT)}{S_2(HH)-S_2(HT)} = \frac{3.20 - 2.40}{16-4} = \frac{0.8}{12} = \frac{1}{30}
+\end{align*}
+At time one, the agent has a portfolio valued at $V_1(H)=2.24$.
+Using the wealth equation, we calculate:
+\begin{gather*}
+    X_{2}(HH) = (16)\left(\tfrac{1}{15}\right) + \tfrac{5}{4}\left[ (2.24) - \left(\tfrac{1}{15}\right)(8) \right] = \tfrac{16}{15} + \tfrac{5}{4}\cdot\tfrac{128}{75} = \tfrac{16}{5} = 3.20 = V_2(HH)\\
+    X_{2}(HT) = (4)\left(\tfrac{1}{15}\right) + \tfrac{5}{4}\left[ (2.24) - \left(\tfrac{1}{15}\right)(8) \right] = \tfrac{4}{15} + \tfrac{5}{4}\cdot\tfrac{128}{75} = \tfrac{12}{5} = 2.40 = V_2(HT)
+\end{gather*}
+Next we calculate $\Delta_2(HT)$:
+\begin{align*}
+    \Delta_1(H) = \frac{V_2(HTH)- V_2(HTT)}{S_2(HTH)-S_2(HTT)} = \frac{0-6}{8-2} = -1
+\end{align*}
+We have $X_2(HT)=V_2(HT)=2.40$:
+\begin{gather*}
+    X_{3}(HTH) = (8)(-1) + \tfrac{5}{4}\left[ (2.40) - (-1)(4) \right] = - 8 + \tfrac{5}{4}\cdot \tfrac{32}{5} = 0 = V_3(HTH) \\
+    X_{3}(HTT) = (2)(-1) + \tfrac{5}{4}\left[ (2.40) - (-1)(4) \right] = - 2 + \tfrac{5}{4}\cdot \tfrac{32}{5} = 6 = V_3(HTT)
+\end{gather*}
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.6} $\;$ If at time zero, the bank purchases $\Delta_0$ shares, they must borrow $\Delta_0 S_0$ from the money market to finance this (if $\Delta_0<0$ this represents short position whose initial proceeds are invested in the money market).
+At time one, the bank then has $X_1 = V_1 + \Delta_0 S_1 - (1+r)\Delta_0 S_0$:
+\begin{gather*}
+    X_1(H) = (3) + \Delta_0 (8) - \tfrac{5}{4}\Delta_0 (4) = 3 + 3\Delta_0 \\
+    X_1(T) = (0) + \Delta_0 (2) - \tfrac{5}{4}\Delta_0 (4) = -3 \Delta_0
+\end{gather*}
+We see that if $\Delta_0 = -0.50$, then $X_1(H) = X_1(T) = 1.50 $, as desired.
+Thus the bank should sell $0.50$ shares short at time zero.
+This will net them proceeds of $(0.50)(4) = 2$, which they should invest into the money market.
+The above calculations show that regardless of the outcome of the coin toss, the bank will have wealth $1.50$.
+
+\vspace{5mm}
+Alternatively, Theorem 1.2.2 tells us the amount of shares $\Delta_0'$ that the \textit{seller} of the option should buy at time zero in order to replicate the option:
+\begin{gather*}
+    \Delta_0 ' = \frac{V_1(H)-V_1(T)}{S_1(H)- S_1(T)} = \frac{3-0}{8-2} = 0.50
+\end{gather*}
+It follows, that the \textit{buyer} of the option (in this case the bank) should perform the opposite actions to the seller, in order to replicate the option.
+Again, we see that the bank should sell $0.50$ shares short at time zero.
+
+
+\rightline{$\square$}
 
 \end{document}
