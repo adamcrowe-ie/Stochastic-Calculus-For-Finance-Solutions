@@ -239,4 +239,108 @@ Then:
 
 \rightline{$\square$}
 
+\vspace{5mm}
+\noindent
+\textbf{Problem 1.9} 
+
+\vspace{5mm}
+\noindent
+(i)$\;$ 
+We surpress $\omega_1 \omega_2 \dots \omega_n$ from notation for brevity.
+For $0\leq n < N$, the wealth equation reads $X_{n+1} = \Delta_n S_{n+1} + (1+r_n)(X_n - \Delta_n S_n)$:
+\begin{align*}
+    X_{n+1}(H) &= u_n \Delta_n S_n + (1+r_n)(X_n - \Delta_n S_n) \tag{1}\\
+    X_{n+1}(T) &= d_n \Delta_n S_n + (1+r_n)(X_n - \Delta_n S_n) \tag{2}
+\end{align*}
+We then define $\tilde p_n = \frac{1+r_n-d_n}{u_n-d_n}$ and $\tilde q_n = \frac{u_n-1-r_n}{u_n-d_n}$, which give $\tilde p_n + \tilde q_n = 1$. We multiply (1) by $\tilde p_n$ and (2) by $\tilde q_n$, then add:
+\begin{gather*}
+    \tilde p_n X_{n+1}(H)+ \tilde q_n X_{n+1}(T) = (\tilde p_n u_n + \tilde q_n d_n) \Delta_n S_n + (1+r_n)(X_n - \Delta_n S_n)
+\end{gather*}
+Notice that:
+\begin{gather*}
+    \tilde p_n u_n + \tilde q_n d_n = \frac{1}{u_n-d_n} \left( (1+ r_n )u_n - u_n d_n + u_n d_n - (1 + r_n)d_n \right) = 1 + r_n
+\end{gather*}
+Hence:
+\begin{gather*}
+    \tilde p_n X_{n+1}(H)+ \tilde q_n X_{n+1}(T) = (1+r_n)X_n \\
+    \implies \quad X_n = \frac{1}{1+r_n} \left[ \tilde p_n X_{n+1}(H)+ \tilde q_n X_{n+1}(T)\right]
+\end{gather*}
+Note that both the LHS and RHS are functions of $\omega_1 \omega_2 \dots \omega_n$, so our result is consistent.
+
+\vspace{5mm}
+
+Thus if an agent buys regardless of the number shares the buy or short at time $n$, their wealth at time $n$ can be determined by the above formula.
+If $V_n$, the price of a derivative security at time $n$ (prior to the expiration at time $N$), was greater than $X_N$,
+then the agent could sell the derivative security, replicate the portfolio, and have a surplus of cash to invest in the money market.
+In this case, an arbitrage exists.
+Similarly, if $V_n < X_n$, then one could buy the derivative security for less than their portfolio, and again have a surplus of cash.
+Thus it follows that $V_n = X_n$ for all $0 \leq n \leq N$.
+
+\begin{gather*}
+    \therefore \quad V_n = \frac{1}{1+r_n} \left[ \tilde p_n V_{n+1}(H)+ \tilde q_n V_{n+1}(T)\right]
+\end{gather*}
+
+This determines a backwards recursive relation for determining $V_0$, given $V_N$, the payoffs at time $N$.
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(ii)$\;$
+Subtracting gives (2) from (1) above gives $(u_n-d_n)\Delta_n S_n = X_{n+1}(H)- X_{n+1}(T)$, hence:
+\begin{gather*}
+    \Delta_n = \frac{X_{n+1}(H)- X_{n+1}(T)}{(u_n-d_n)S_n} 
+\end{gather*}
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(iii)$\;$ We first derive a formula for $v_n(s)$.
+The possible prices at time five are: 130, 110, 90, 70, 50, and 30.
+Since $v_5(s) = (s-80)^+$ we have that $v_5(s) = 0$ for $s \leq 80$.
+\begin{gather*}
+    v_5(130) = 50, \quad v_5(110) = 30, \quad v_5(90)=10, \quad
+    v_5(70)=v_5(50)=v_5(30) =0
+\end{gather*}
+We have $u_n = \frac{S_{n+1}(H)}{S_n} = \frac{S_n+10}{S_n} = 1 + \frac{10}{S_n}$ and $d_n =\frac{S_{n+1}(T)}{S_n} = \frac{S_n-10}{S_n} = 1 - \frac{10}{S_n}$
+Furthermore $r_n=0$ for all $n$.
+We calculate:
+\begin{gather*}
+    \tilde p_n = \frac{ 1 + (0) - \left( 1 - \frac{10}{S_n}\right)}{\left( 1 + \frac{10}{S_n}\right) - \left( 1 - \frac{10}{S_n}\right)} = \frac{\left( \frac{10}{S_n}\right)}{\left( \frac{20}{S_n}\right)} = \frac{1}{2} \quad \implies \quad \tilde q_n = \frac{1}{2}
+\end{gather*}
+Therefore the recursive formula for $v_n$ is:
+\begin{align*}
+    v_n(s) &= \frac{1}{1+(0)}\left[\left( \tfrac{1}{2}\right) v_{n+1}(s+10) + \left(\tfrac{1}{2}\right) v_{n+1}(s-10) \right] \\
+    &= \tfrac{1}{2}\left[v_{n+1}(s+10) + v_{n+1}(s-10) \right]
+\end{align*}
+Therefore:
+\begin{align*}
+    v_4(120) &= \tfrac{1}{2}\left[ (50) + (30) \right] = 40 &
+    v_4(100) &= \tfrac{1}{2}\left[ (30) + (10) \right] = 20 \\
+    v_4(80) &= \tfrac{1}{2}\left[ (10) + (0) \right] = 5 &
+    v_4(60) &= v_4(40) = 0
+\end{align*}
+\begin{align*}
+    v_3(110) &= \tfrac{1}{2}\left[ (40) + (20) \right] = 30 &
+    v_3(90) &= \tfrac{1}{2}\left[ (20) + (5) \right] = \tfrac{25}{2} \\
+    v_3(70) &= \tfrac{1}{2}\left[ (5) + (0) \right] = \tfrac{5}{2} &
+    v_3(50) &= 0
+\end{align*}
+\begin{align*}
+    v_2(100) &= \tfrac{1}{2}\left[ (30) + \left( \tfrac{25}{2} \right) \right] = \tfrac{85}{4} &
+    v_2(80) &= \tfrac{1}{2}\left[ \left( \tfrac{25}{2} \right) + \left( \tfrac{5}{2} \right) \right] = \tfrac{15}{2} \\
+    v_2(60) &= \tfrac{1}{2}\left[ \left( \tfrac{5}{2} \right) + \left( 0 \right) \right] = \tfrac{5}{4} 
+\end{align*}
+\begin{align*}
+    v_1(90) = \tfrac{1}{2}\left[ \left( \tfrac{85}{4} \right) + \left( \tfrac{15}{2} \right) \right] = \tfrac{115}{8} \quad\quad\quad
+    v_1(70) = \tfrac{1}{2}\left[ \left( \tfrac{15}{2} \right) + \left( \tfrac{5}{4} \right) \right] = \tfrac{35}{8}
+\end{align*}
+\begin{gather*}
+    \therefore \quad v_0(80) = \tfrac{1}{2}\left[ \left( \tfrac{115}{8} \right) + \left( \tfrac{35}{8} \right) \right] = \tfrac{150}{16} = 9.375
+\end{gather*}
+The price at time zero of the option is $V_0 = 9.375$
+
+\rightline{$\square$}
+
 \end{document}
