@@ -10,10 +10,10 @@ def derivative_price(period: int, stock_price: float) -> float:
     price: float
     key = f"period: {period}, stock_price: {stock_price}"
 
-    if key in history:
-        price = history[key]
-    elif period == PAYOFF_PERIOD:
+    if period == PAYOFF_PERIOD:
         price = PAYOFF(stock_price)
+    elif key in history:
+        price = history[key]
     else:
         derivative_price_next_period_heads = derivative_price(period + 1, NEXT_STOCK_PRICE_HEADS(stock_price))
         derivative_price_next_period_tails = derivative_price(period + 1, NEXT_STOCK_PRICE_TAILS(stock_price))
