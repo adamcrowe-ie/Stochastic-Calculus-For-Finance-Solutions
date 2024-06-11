@@ -263,18 +263,19 @@ Notice that:
 Hence:
 \begin{gather*}
     \tilde p_n X_{n+1}(H)+ \tilde q_n X_{n+1}(T) = (1+r_n)X_n \\
-    \implies \quad X_n = \frac{1}{1+r_n} \left[ \tilde p_n X_{n+1}(H)+ \tilde q_n X_{n+1}(T)\right]
+    \implies \quad X_n = \frac{1}{1+r_n} \left[ \tilde p_n X_{n+1}(H)+ \tilde q_n X_{n+1}(T)\right] \tag{3}
 \end{gather*}
 Note that both the LHS and RHS are functions of $\omega_1 \omega_2 \dots \omega_n$, so our result is consistent.
 
 \vspace{5mm}
 
-Thus if an agent buys regardless of the number shares the buy or short at time $n$, their wealth at time $n$ can be determined by the above formula.
-If $V_n$, the price of a derivative security at time $n$ (prior to the expiration at time $N$), was greater than $X_N$,
+Thus an agent's wealth at time $n$ can be determined recursively backwards (3).
+If $V_n$, the price of a derivative security at time $n$ (prior to the expiration at time $N$), was greater than $X_n$,
 then the agent could sell the derivative security, replicate the portfolio, and have a surplus of cash to invest in the money market.
 In this case, an arbitrage exists.
 Similarly, if $V_n < X_n$, then one could buy the derivative security for less than their portfolio, and again have a surplus of cash.
 Thus it follows that $V_n = X_n$ for all $0 \leq n \leq N$.
+Applying this to (3):
 
 \begin{gather*}
     \therefore \quad V_n = \frac{1}{1+r_n} \left[ \tilde p_n V_{n+1}(H)+ \tilde q_n V_{n+1}(T)\right]

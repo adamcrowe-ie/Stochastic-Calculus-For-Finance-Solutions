@@ -1,0 +1,118 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\author{Adam Crowe}
+\title{Shreve -- Stochastic Calculus for Finance, Vol. 1 \\ Chapter 1 Solutions}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\maketitle
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 2.1}
+
+\vspace{5mm}
+\noindent
+(i)$\;$ We have:
+\begin{gather*}
+    \mathbb P(A) + \mathbb P(A^C) =
+    \sum_{\omega \in A} \mathbb P(\omega) + \sum_{\omega \in A^C} \mathbb P(\omega)=
+    \sum_{\omega \in A} \mathbb P(\omega) + \sum_{\omega \in \Omega \setminus A} \mathbb P(\omega)
+    = \sum_{\omega \in \Omega} \mathbb P(\omega) = 1
+\end{gather*}
+The result follows.
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(ii)$\;$ We have:
+\begin{gather*}
+    \mathbb P \left( \, \bigcup_{n=1}^N A_n \right)
+    = \sum_{\omega \in \bigcup A_n} \mathbb P(\omega)
+    = \sum_{\omega \in \tilde A_1} \mathbb P(\omega)
+    + \cdots
+    +\sum_{\omega \in \tilde A_n } \mathbb P(\omega)
+    = \mathbb P(\tilde A_1) + \cdots + \mathbb P(\tilde A_n)
+\end{gather*}
+where $\tilde A_n = A_n \setminus \left( \, \bigcup_{1 \leq i < n} A_i \, \right)$.
+We then see that:
+\begin{gather*}
+    \mathbb P(\tilde A_n) = \mathbb P(A_n) - \mathbb P\left( A_n \cap \left(\bigcup_{i=1}^{n-1} A_i \right) \right)
+    \leq \mathbb P(A_n)
+\end{gather*}
+by non-negativity of $\mathbb P$.
+Thus $\mathbb P(\tilde A_n) \leq \mathbb P(A_n)$ for all $1 \leq n \leq n$, so:
+\begin{gather*}
+    \mathbb P \left( \, \bigcup_{n=1}^N A_n \right)
+    = \sum_{n=1}^N \mathbb P(\tilde A_n) \leq \sum_{n=1}^N \mathbb P(A_n).
+\end{gather*}
+
+\vspace{5mm}
+Furthermore, if all $A_n$ are disjoint, then $\tilde A_n = A_n$, which makes equality hold.
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+\textbf{Problem 2.2} $\;$ 
+
+\vspace{5mm}
+\noindent
+(i)$\;$ We have:
+\begin{align*}
+    \tilde{\mathbb P} \{ S_3 = 32 \} &= 0.125 & \tilde{\mathbb P} \{ S_3 = 8 \} &= 0.375 \\
+    \tilde{\mathbb P} \{ S_3 = 2 \} &= 0.375 & \tilde{\mathbb P} \{ S_3 = 0.5 \} &= 0.125
+\end{align*}
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(ii)$\;$ First we compute the distributions of $S_1$ and $S_2$:
+\begin{align*}
+    \tilde{\mathbb P} \{ S_1 = 8 \} &= 0.5 & \tilde{\mathbb P} \{ S_1 = 2 \} &= 0.5
+\end{align*}
+\begin{align*}
+    \tilde{\mathbb P} \{ S_2 =  16\} &= 0.25 & \tilde{\mathbb P} \{ S_2 = 4 \} &= 0.5
+    & \tilde{\mathbb P} \{ S_2 = 1 \} &= 0.25
+\end{align*}
+Then:
+\begin{align*}
+    \tilde{\mathbb E} S_1 &= (8)(0.5)+(2)(0.5) = 5 \\
+    \tilde{\mathbb E} S_2 &= (16)(0.25)+(4)(0.5) + 1(0.25) = 6.25 \\
+    \tilde{\mathbb E} S_3 &= (32)(0.125)+(8)(0.375)+(2)(0.375)+(0.5)(0.125) = 7.8125
+\end{align*}
+i.e: $\tilde{\mathbb E} S_n = (1+r)S_{n-1}$.
+
+\rightline{$\square$}
+
+\vspace{5mm}
+\noindent
+(iii)$\;$ The distributions are:
+\begin{align*}
+    \tilde{\mathbb P} \{ S_1 = 8 \} &= \tfrac 2 3 & \tilde{\mathbb P} \{ S_1 = 2 \} &= \tfrac 1 3
+\end{align*}
+\begin{align*}
+    \tilde{\mathbb P} \{ S_2 =  16\} &= \tfrac 4 9 & \tilde{\mathbb P} \{ S_2 = 4 \} &= \tfrac 4 9
+    & \tilde{\mathbb P} \{ S_2 = 1 \} &= \tfrac 1 9
+\end{align*}
+\begin{align*}
+    \tilde{\mathbb P} \{ S_3 = 32 \} &= \tfrac 8 {27}  & \tilde{\mathbb P} \{ S_3 = 8 \} &= \tfrac 4 9  \\
+    \tilde{\mathbb P} \{ S_3 = 2 \} &= \tfrac 2 9 & \tilde{\mathbb P} \{ S_3 = 0.5 \} &= \tfrac 1 {27}
+\end{align*}
+And so:
+\begin{align*}
+    \tilde{\mathbb E} S_1 &= (8) \left(\tfrac 2 3 \right)+(2)\left(\tfrac 1 3 \right) = 6 \\
+    \tilde{\mathbb E} S_2 &= (16)\left(\tfrac 4 9 \right)+(4)\left(\tfrac 4 9 \right) + 1\left(\tfrac 1 9 \right) = 9 \\
+    \tilde{\mathbb E} S_3 &= (32)\left(\tfrac 8 {27} \right)+(8)\left(\tfrac 4 9 \right)+(2)\left(\tfrac 2 9 \right)+(0.5)\left(\tfrac 1 {27} \right) = 13.5
+\end{align*}
+
+\end{document}
